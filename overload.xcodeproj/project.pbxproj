@@ -7,21 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C5CAD67CCD59F6F7F1D119E /* Pods_overload.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5EF6F6115543435CE8070E8 /* Pods_overload.framework */; };
 		E8B075A327B4095E004127BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B075A227B4095E004127BC /* AppDelegate.swift */; };
-		E8B075A527B4095E004127BC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B075A427B4095E004127BC /* SceneDelegate.swift */; };
 		E8B075A727B4095E004127BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B075A627B4095E004127BC /* ViewController.swift */; };
 		E8B075AC27B40960004127BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8B075AB27B40960004127BC /* Assets.xcassets */; };
 		E8B075AF27B40960004127BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8B075AD27B40960004127BC /* LaunchScreen.storyboard */; };
+		E8B075B827B41432004127BC /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B075B727B41432004127BC /* Navigator.swift */; };
+		E8B075BC27B41532004127BC /* TableBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B075BB27B41532004127BC /* TableBarViewModel.swift */; };
+		E8B075BF27B41582004127BC /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B075BE27B41582004127BC /* ViewModelType.swift */; };
+		E8D3B0FD27B534D000071D3E /* TableBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3B0FC27B534D000071D3E /* TableBarController.swift */; };
+		E8DBB55427B514730044F29C /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DBB55327B514730044F29C /* Application.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		02EFBD7EE5471CFEF6B3579C /* Pods-overload.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-overload.debug.xcconfig"; path = "Target Support Files/Pods-overload/Pods-overload.debug.xcconfig"; sourceTree = "<group>"; };
+		2152392C060FADAA70C84650 /* Pods-overload.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-overload.release.xcconfig"; path = "Target Support Files/Pods-overload/Pods-overload.release.xcconfig"; sourceTree = "<group>"; };
 		E8B0759F27B4095E004127BC /* overload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = overload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8B075A227B4095E004127BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E8B075A427B4095E004127BC /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E8B075A627B4095E004127BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E8B075AB27B40960004127BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8B075AE27B40960004127BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8B075B027B40960004127BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8B075B727B41432004127BC /* Navigator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		E8B075BB27B41532004127BC /* TableBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBarViewModel.swift; sourceTree = "<group>"; };
+		E8B075BE27B41582004127BC /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
+		E8D3B0FC27B534D000071D3E /* TableBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableBarController.swift; sourceTree = "<group>"; };
+		E8DBB55327B514730044F29C /* Application.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
+		F5EF6F6115543435CE8070E8 /* Pods_overload.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_overload.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C5CAD67CCD59F6F7F1D119E /* Pods_overload.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		60BC97EDE1EC14CC1787F484 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F5EF6F6115543435CE8070E8 /* Pods_overload.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		71EAC478F56DDC056406CC48 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02EFBD7EE5471CFEF6B3579C /* Pods-overload.debug.xcconfig */,
+				2152392C060FADAA70C84650 /* Pods-overload.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		E8B0759627B4095E004127BC = {
 			isa = PBXGroup;
 			children = (
 				E8B075A127B4095E004127BC /* overload */,
 				E8B075A027B4095E004127BC /* Products */,
+				71EAC478F56DDC056406CC48 /* Pods */,
+				60BC97EDE1EC14CC1787F484 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,14 +86,50 @@
 		E8B075A127B4095E004127BC /* overload */ = {
 			isa = PBXGroup;
 			children = (
-				E8B075A227B4095E004127BC /* AppDelegate.swift */,
-				E8B075A427B4095E004127BC /* SceneDelegate.swift */,
+				E8B075BD27B41565004127BC /* Common */,
+				E8B075B927B41517004127BC /* Modules */,
+				E8B075B627B411B5004127BC /* Application */,
 				E8B075A627B4095E004127BC /* ViewController.swift */,
 				E8B075AB27B40960004127BC /* Assets.xcassets */,
 				E8B075AD27B40960004127BC /* LaunchScreen.storyboard */,
 				E8B075B027B40960004127BC /* Info.plist */,
 			);
 			path = overload;
+			sourceTree = "<group>";
+		};
+		E8B075B627B411B5004127BC /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				E8B075A227B4095E004127BC /* AppDelegate.swift */,
+				E8B075B727B41432004127BC /* Navigator.swift */,
+				E8DBB55327B514730044F29C /* Application.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		E8B075B927B41517004127BC /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				E8B075BA27B41524004127BC /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		E8B075BA27B41524004127BC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E8B075BB27B41532004127BC /* TableBarViewModel.swift */,
+				E8D3B0FC27B534D000071D3E /* TableBarController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		E8B075BD27B41565004127BC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				E8B075BE27B41582004127BC /* ViewModelType.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +139,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E8B075B327B40960004127BC /* Build configuration list for PBXNativeTarget "overload" */;
 			buildPhases = (
+				224F5DAC54E4D19D3F67C6AD /* [CP] Check Pods Manifest.lock */,
 				E8B0759B27B4095E004127BC /* Sources */,
 				E8B0759C27B4095E004127BC /* Frameworks */,
 				E8B0759D27B4095E004127BC /* Resources */,
+				95BB2C3BC5530886541CDAF0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -129,14 +199,60 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		224F5DAC54E4D19D3F67C6AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-overload-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		95BB2C3BC5530886541CDAF0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-overload/Pods-overload-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-overload/Pods-overload-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-overload/Pods-overload-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E8B0759B27B4095E004127BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8B075BC27B41532004127BC /* TableBarViewModel.swift in Sources */,
+				E8D3B0FD27B534D000071D3E /* TableBarController.swift in Sources */,
+				E8DBB55427B514730044F29C /* Application.swift in Sources */,
 				E8B075A727B4095E004127BC /* ViewController.swift in Sources */,
+				E8B075BF27B41582004127BC /* ViewModelType.swift in Sources */,
+				E8B075B827B41432004127BC /* Navigator.swift in Sources */,
 				E8B075A327B4095E004127BC /* AppDelegate.swift in Sources */,
-				E8B075A527B4095E004127BC /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +388,7 @@
 		};
 		E8B075B427B40960004127BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02EFBD7EE5471CFEF6B3579C /* Pods-overload.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -284,6 +401,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -299,6 +417,7 @@
 		};
 		E8B075B527B40960004127BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2152392C060FADAA70C84650 /* Pods-overload.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -311,6 +430,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
