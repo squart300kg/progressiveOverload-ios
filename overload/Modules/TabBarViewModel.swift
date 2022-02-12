@@ -9,7 +9,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class TableBarViewModel: ViewModel, ViewModelType {
+class TabBarViewModel: ViewModel, ViewModelType {
     
     struct Input {
         let initTrigger: Observable<Void>
@@ -34,5 +34,16 @@ class TableBarViewModel: ViewModel, ViewModelType {
     
     override init() {
         super.init()
+    }
+    
+    func viewModel(for tabBarItem: TabBarItem) -> ViewModel {
+        switch tabBarItem {
+        case .logWrite:
+            let viewModel = LogWriteViewModel()
+            return viewModel
+        case .logRead:
+            let viewModel = LogReadViewModel()
+            return viewModel
+        }
     }
 }

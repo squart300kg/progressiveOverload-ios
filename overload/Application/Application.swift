@@ -32,7 +32,7 @@ final class Application: NSObject {
 //        guard let window = window, provider = provider else {return}
         guard let window = window else { return }
         self.window = window
-        let viewModel = TableBarViewModel()
+        let viewModel = TabBarViewModel()
         self.navigator.show(segue: .tabs(viewModel: viewModel), sender: nil, transition: .root(in: window))
     }
 }

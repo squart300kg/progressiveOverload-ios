@@ -17,7 +17,7 @@ class Navigator {
     static var shared = Navigator()
     
     enum Scene {
-        case tabs(viewModel: TableBarViewModel)
+        case tabs(viewModel: TabBarViewModel)
     }
     
     enum Transition {
