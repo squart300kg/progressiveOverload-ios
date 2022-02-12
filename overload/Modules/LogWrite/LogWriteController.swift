@@ -21,8 +21,16 @@ class LogWriteController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        
+        let test = UILabel()
+        view.addSubview(test)
+        test.text = "text" // test를 위해서 출력할 라벨
+        test.translatesAutoresizingMaskIntoConstraints = false
+        test.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        test.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 }

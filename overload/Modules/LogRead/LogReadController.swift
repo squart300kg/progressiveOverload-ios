@@ -25,5 +25,11 @@ class LogReadController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .white
         
+        let test = UILabel()
+        view.addSubview(test)
+        test.text = "일지 조회" // test를 위해서 출력할 라벨
+        test.translatesAutoresizingMaskIntoConstraints = false
+        test.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        test.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
 }
