@@ -11,13 +11,7 @@ import SnapKit
 class LogWriteController: UIViewController {
     var viewModel: ViewModel?
     var navigator: Navigator!
-    
-    lazy var addStackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        return stackView
-    }()
-    
+   
     lazy var addBorderView: UIView = {
         let view = UIView()
         self.view.addSubview(view)
@@ -30,6 +24,8 @@ class LogWriteController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             view.addDashedBorder()
         }
+        
+//        view.addTarget(self, action: #selector(self.onClickAddProgram), for: .touchUpInside)
         return view
     }()
     
@@ -66,7 +62,6 @@ class LogWriteController: UIViewController {
         
         makeUI()
         
-        
     }
     
     private func makeUI() {
@@ -85,5 +80,9 @@ class LogWriteController: UIViewController {
             make.top.equalTo(plusImage.snp.bottom)
             make.centerX.equalToSuperview()
         }
+    }
+    
+    @objc func onClickAddProgram(_ sender: Any) {
+        print("플그램추가")
     }
 }
