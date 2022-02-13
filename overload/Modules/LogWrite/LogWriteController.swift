@@ -28,20 +28,26 @@ class LogWriteController: UIViewController {
         }
          
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            // Your code with delay
             view.addDashedBorder()
         }
         return view
     }()
     
     lazy var plusImage: UIImageView = {
-        return UIImageView(image: R.image.icon_tabbar_selected_write())
+        let imageView = UIImageView(image: R.image.icon_plus())
+        imageView.snp.makeConstraints { make in
+            make.width.height.equalTo(20)
+        }
+        return imageView
     }()
     
     lazy var addText: UILabel = {
         let label = UILabel()
         label.text = "프로그램 등록"
         label.textAlignment = .center
+        label.snp.makeConstraints { make in
+            make.width.equalTo(100)
+        }
         return label
     }()
      
@@ -60,34 +66,24 @@ class LogWriteController: UIViewController {
         
         makeUI()
         
+        
     }
     
     private func makeUI() {
         self.view.backgroundColor = .white
-       
-        addStackView.insertArrangedSubview(plusImage, at: 0)
-        addStackView.insertArrangedSubview(addText, at: 1)
         
-        addBorderView.addSubview(addStackView)
-        addStackView.snp.makeConstraints { make in
+        addBorderView.addSubview(plusImage)
+        addBorderView.addSubview(addText)
+        
+        plusImage.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(75)
             make.centerX.equalToSuperview()
-            make.centerY.equalToSuperview()
-        }
-        plusImage.snp.makeConstraints{ make in
-            make.leading.trailing.top.equalToSuperview()
-            make.centerX.equalToSuperview()
+
+            
         }
         addText.snp.makeConstraints { make in
             make.top.equalTo(plusImage.snp.bottom)
             make.centerX.equalToSuperview()
         }
-        
-//        addBorderView.addSubview(addText)
-//        addText.snp.makeConstraints { make in
-//            make.leading.trailing.top.equalToSuperview()
-//            make.centerY.equalTo(addBorderView)
-//        }
-        
-     
     }
 }
