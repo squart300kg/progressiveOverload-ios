@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import RxSwift
 
 class LogWriteController: UIViewController {
     var viewModel: ViewModel?
@@ -24,8 +25,7 @@ class LogWriteController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             view.addDashedBorder()
         }
-        
-//        view.addTarget(self, action: #selector(self.onClickAddProgram), for: .touchUpInside)
+
         return view
     }()
     
@@ -61,6 +61,7 @@ class LogWriteController: UIViewController {
         super.viewDidLoad()
         
         makeUI()
+        bindViewModel()
         
     }
     
@@ -73,8 +74,6 @@ class LogWriteController: UIViewController {
         plusImage.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(75)
             make.centerX.equalToSuperview()
-
-            
         }
         addText.snp.makeConstraints { make in
             make.top.equalTo(plusImage.snp.bottom)
@@ -82,7 +81,14 @@ class LogWriteController: UIViewController {
         }
     }
     
-    @objc func onClickAddProgram(_ sender: Any) {
-        print("플그램추가")
+    private func bindViewModel() {
+        addBorderView.rx.tap().bind {
+            print("프로그램 등록 크릭크릭")
+            self.navigator.show(segue: .mesoSelection, sender: self)
+        }.disposed(by: rx.disposeBag)
+
     }
+    
+    
+    
 }

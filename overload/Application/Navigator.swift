@@ -18,6 +18,8 @@ class Navigator {
     
     enum Scene {
         case tabs(viewModel: TabBarViewModel)
+        case mesoSelection
+        case microSelection
     }
     
     enum Transition {
@@ -33,14 +35,21 @@ class Navigator {
     func get(segue: Scene) -> UIViewController? {
         switch segue {
         case .tabs(let viewModel): return TableBarController(viewModel: viewModel, navigator: self)
+        case .mesoSelection: return MesoCycleSelectionController()
+        case .microSelection: return MicroCycleSelectionController()
+            
         }
         
     }
     
     func show(segue: Scene, sender: UIViewController?, transition: Transition = .navigation(type: .cover(direction: .left))) {
+        print("show : \(segue)")
         if let target = get(segue: segue) {
+            print("target : \(target)")
+            print("sender : \(sender)")
             show(target: target, sender: sender, transition: transition)
         }
+        print("transition : \(transition)")
     }
     
     private func show(target: UIViewController, sender: UIViewController?, transition: Transition) {
@@ -55,20 +64,21 @@ class Navigator {
         default: break
         }
         
-//        guard let sender = sender else {
-//            fatalError("You need to pass in a sender for .navigation or .modal transitions")
-//        }
-//
-//        if let nav = sender as? UINavigationController {
-//            nav.pushViewController(target, animated: false)
-//            return
-//        }
-//
-//        switch transition {
-//        case .root(let in, let uIWindow):
-//            <#code#>
-//        case .navigation(let type):
-//            <#code#>
+        guard let sender = sender else {
+            fatalError("You need to pass in a sender for .navigation or .modal transitions")
+        }
+
+        if let nav = sender as? UINavigationController {
+            nav.pushViewController(target, animated: false)
+            return
+        }
+
+        switch transition {
+        case .navigation(let type):
+            if let nav = sender.navigationController {
+                nav.hero.navigationAnimationType = .autoReverse(presenting: type)
+                nav.pushViewController(target, animated: true)
+            }
 //        case .customModel(let type):
 //            <#code#>
 //        case .model:
@@ -79,7 +89,8 @@ class Navigator {
 //            <#code#>
 //        case .fullModal:
 //            <#code#>
-//        }
+        default: break
+        }
     }
     
 }
