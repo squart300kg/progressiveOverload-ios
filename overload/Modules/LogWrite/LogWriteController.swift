@@ -83,7 +83,7 @@ class LogWriteController: UIViewController {
     
     private func bindViewModel() {
         addBorderView.rx.tap().bind {
-            print("프로그램 등록 크릭크릭")
+            print("크릭크릭")
             self.navigator.show(segue: .mesoSelection, sender: self)
         }.disposed(by: rx.disposeBag)
 

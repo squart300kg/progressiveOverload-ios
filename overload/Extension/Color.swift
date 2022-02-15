@@ -9,6 +9,14 @@ import UIKit
 import SwifterSwift
 
 struct MainColor {
+     
+    let green_first = UIColor(hexString: "10561F")
+    let green_second = UIColor(hexString: "256F15")
+    let green_third = UIColor(hexString: "48A70B")
+    let green_fourth = UIColor(hexString: "7FE706")
+    
+    let white = UIColor(hexString: "FFFFFF") // rgb 47 47 47
+    
     let unselected_tab_bar = UIColor(hexString: "CCCCCC") // rgb 47 47 47
     let black = UIColor(hexString: "000000") // rgb 47 47 47
     let white_47 = UIColor(hexString: "2F2F2F") // rgb 47 47 47
