@@ -27,5 +27,10 @@ class NavigationController: UINavigationController {
         hero.navigationAnimationType = .autoReverse(presenting: .slide(direction: .left))
         
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+//        self.navigationController?.isNavigationBarHidden = false
+    }
 }
 

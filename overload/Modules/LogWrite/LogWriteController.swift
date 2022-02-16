@@ -57,6 +57,7 @@ class LogWriteController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,8 +66,14 @@ class LogWriteController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        tabBarVC?.tabBar.isHidden = false
+    }
+    
     private func makeUI() {
         self.view.backgroundColor = .white
+        self.navigationController?.navigationBar.isHidden = true
         
         addBorderView.addSubview(plusImage)
         addBorderView.addSubview(addText)
@@ -83,7 +90,6 @@ class LogWriteController: UIViewController {
     
     private func bindViewModel() {
         addBorderView.rx.tap().bind {
-            print("크릭크릭")
             self.navigator.show(segue: .mesoSelection, sender: self)
         }.disposed(by: rx.disposeBag)
 

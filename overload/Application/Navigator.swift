@@ -35,8 +35,8 @@ class Navigator {
     func get(segue: Scene) -> UIViewController? {
         switch segue {
         case .tabs(let viewModel): return TableBarController(viewModel: viewModel, navigator: self)
-        case .mesoSelection: return MesoCycleSelectionController()
-        case .microSelection: return MicroCycleSelectionController()
+        case .mesoSelection: return MesoCycleSelectionController(navigator: self)
+        case .microSelection: return MicroCycleSelectionController(navigator: self)
             
         }
         
