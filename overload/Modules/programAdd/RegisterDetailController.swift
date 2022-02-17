@@ -281,6 +281,12 @@ class RegisterDetailController: UIViewController {
             self.rirField.becomeFirstResponder()
         }.disposed(by: rx.disposeBag)
 
+        exerciseNameField.addTarget(self, action: #selector(isInputPerfect(_:)), for: .editingChanged)
+        weightFiled.addTarget(self, action: #selector(isInputPerfect(_:)), for: .editingChanged)
+        repField.addTarget(self, action: #selector(isInputPerfect(_:)), for: .editingChanged)
+        setField.addTarget(self, action: #selector(isInputPerfect(_:)), for: .editingChanged)
+        restField.addTarget(self, action: #selector(isInputPerfect(_:)), for: .editingChanged)
+        rirField.addTarget(self, action: #selector(isInputPerfect(_:)), for: .editingChanged)
     }
 }
 
@@ -288,5 +294,28 @@ extension RegisterDetailController {
     // 스크롤 뷰 터치 시 키보드 내리기
     @objc func scrollTap(sender: UITapGestureRecognizer) {
             self.view.endEditing(true)
+    }
+    
+    @objc func isInputPerfect(_ textField: UITextField) {
+        if !self.exerciseNameField.text.isNilOrEmpty &&
+           !self.weightFiled.text.isNilOrEmpty &&
+           !self.repField.text.isNilOrEmpty &&
+           !self.setField.text.isNilOrEmpty &&
+           !self.restField.text.isNilOrEmpty &&
+           !self.rirField.text.isNilOrEmpty {
+            activateRegisterBtn()
+        } else {
+            unactivateRegisterBtn()
+        }
+    }
+    
+    func activateRegisterBtn() {
+        registerBtn.backgroundColor = MainColor().green_first
+        registerBtn.textColor = MainColor().white
+    }
+     
+    func unactivateRegisterBtn() {
+        registerBtn.backgroundColor = .lightGray
+        registerBtn.textColor = MainColor().white
     }
 }
