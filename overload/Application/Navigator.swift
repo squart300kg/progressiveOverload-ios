@@ -19,8 +19,8 @@ class Navigator {
     enum Scene {
         case tabs(viewModel: TabBarViewModel)
         case mesoSelection
-        case microSelection
-        case register
+        case microSelection(viewModel: CycleSelectionViewModel)
+        case register(viewModel: CycleSelectionViewModel)
         case registerDetail
     }
     
@@ -38,8 +38,8 @@ class Navigator {
         switch segue {
         case .tabs(let viewModel): return TableBarController(viewModel: viewModel, navigator: self)
         case .mesoSelection: return MesoCycleSelectionController(navigator: self)
-        case .microSelection: return MicroCycleSelectionController(navigator: self)
-        case .register: return RegisterController(navigator: self)
+        case .microSelection(let viewModel): return MicroCycleSelectionController(viewModel: viewModel, navigator: self)
+        case .register(let viewModel): return RegisterController(viewModel: viewModel, navigator: self)
         case .registerDetail: return RegisterDetailController(navigator: self)
         }
         

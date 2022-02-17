@@ -11,6 +11,7 @@ import UIKit
 class RegisterDetailController: UIViewController {
     
     var navigator: Navigator!
+    var isInputPerfect = false
     
     init(navigator: Navigator) {
         self.navigator = navigator
@@ -280,6 +281,15 @@ class RegisterDetailController: UIViewController {
         rir.rx.tap().bind {
             self.rirField.becomeFirstResponder()
         }.disposed(by: rx.disposeBag)
+        
+        registerBtn.rx.tap().bind {
+            if self.isInputPerfect == true {
+                self.navigationController?.popViewController(animated: true)
+            } else {
+                self.showToast(message: "입력창을 모두 채워주세요!")
+            }
+            
+        }.disposed(by: rx.disposeBag)
 
         exerciseNameField.addTarget(self, action: #selector(isInputPerfect(_:)), for: .editingChanged)
         weightFiled.addTarget(self, action: #selector(isInputPerfect(_:)), for: .editingChanged)
@@ -287,7 +297,7 @@ class RegisterDetailController: UIViewController {
         setField.addTarget(self, action: #selector(isInputPerfect(_:)), for: .editingChanged)
         restField.addTarget(self, action: #selector(isInputPerfect(_:)), for: .editingChanged)
         rirField.addTarget(self, action: #selector(isInputPerfect(_:)), for: .editingChanged)
-    }
+    } 
 }
 
 extension RegisterDetailController {
@@ -304,8 +314,10 @@ extension RegisterDetailController {
            !self.restField.text.isNilOrEmpty &&
            !self.rirField.text.isNilOrEmpty {
             activateRegisterBtn()
+            isInputPerfect = true
         } else {
             unactivateRegisterBtn()
+            isInputPerfect = false
         }
     }
     
@@ -317,5 +329,20 @@ extension RegisterDetailController {
     func unactivateRegisterBtn() {
         registerBtn.backgroundColor = .lightGray
         registerBtn.textColor = MainColor().white
+    }
+    
+    func showToast(message : String, font: UIFont = UIFont.systemFont(ofSize: 14.0)) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds = true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 10.0, delay: 0.1, options: .curveEaseOut, animations: { toastLabel.alpha = 0.0 }, completion: {(isCompleted) in toastLabel.removeFromSuperview() })
+        
     }
 }

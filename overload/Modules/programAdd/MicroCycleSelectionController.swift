@@ -11,9 +11,11 @@ class MicroCycleSelectionController: UIViewController
                                         ,UITableViewDataSource, UITableViewDelegate
 {
     var navigator: Navigator!
+    var viewModel: CycleSelectionViewModel!
     
-    init(navigator: Navigator) {
+    init(viewModel: CycleSelectionViewModel, navigator: Navigator) {
         self.navigator = navigator
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -33,8 +35,10 @@ class MicroCycleSelectionController: UIViewController
     // 선택 해제 설정
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        
-        self.navigator.show(segue: .register, sender: self)
+        let viewModel = CycleSelectionViewModel()
+        viewModel.microSplitCount = indexPath.row
+        viewModel.mesoSplitCount = self.viewModel.mesoSplitCount
+        self.navigator.show(segue: .register(viewModel: viewModel), sender: self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

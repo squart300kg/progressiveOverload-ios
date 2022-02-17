@@ -10,6 +10,7 @@
 		2C5CAD67CCD59F6F7F1D119E /* Pods_overload.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5EF6F6115543435CE8070E8 /* Pods_overload.framework */; };
 		E809B7B127BDF3CD00C9F908 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E809B7B027BDF3CD00C9F908 /* RegisterController.swift */; };
 		E809B7B327BE1A6E00C9F908 /* RegisterDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E809B7B227BE1A6E00C9F908 /* RegisterDetailController.swift */; };
+		E809B7B527BE80A800C9F908 /* CycleSelectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E809B7B427BE80A800C9F908 /* CycleSelectionViewModel.swift */; };
 		E80C10EE27B69974009CEE52 /* LogWriteController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80C10ED27B69974009CEE52 /* LogWriteController.swift */; };
 		E80C10F027B699EE009CEE52 /* LogReadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80C10EF27B699EE009CEE52 /* LogReadController.swift */; };
 		E80C10F327B6D3FD009CEE52 /* UIImage+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80C10F227B6D3FD009CEE52 /* UIImage+Extention.swift */; };
@@ -42,6 +43,7 @@
 		2152392C060FADAA70C84650 /* Pods-overload.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-overload.release.xcconfig"; path = "Target Support Files/Pods-overload/Pods-overload.release.xcconfig"; sourceTree = "<group>"; };
 		E809B7B027BDF3CD00C9F908 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		E809B7B227BE1A6E00C9F908 /* RegisterDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterDetailController.swift; sourceTree = "<group>"; };
+		E809B7B427BE80A800C9F908 /* CycleSelectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleSelectionViewModel.swift; sourceTree = "<group>"; };
 		E80C10ED27B69974009CEE52 /* LogWriteController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogWriteController.swift; sourceTree = "<group>"; };
 		E80C10EF27B699EE009CEE52 /* LogReadController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogReadController.swift; sourceTree = "<group>"; };
 		E80C10F227B6D3FD009CEE52 /* UIImage+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extention.swift"; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				E8C26E0227BA98D0007F216F /* MicroCycleSelectionController.swift */,
 				E809B7B027BDF3CD00C9F908 /* RegisterController.swift */,
 				E809B7B227BE1A6E00C9F908 /* RegisterDetailController.swift */,
+				E809B7B427BE80A800C9F908 /* CycleSelectionViewModel.swift */,
 			);
 			path = programAdd;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				E867644027BCFA2B002E3481 /* CycleSelectionCell.swift in Sources */,
 				E8CF773B27BBB0E500DB3A39 /* TableViewController.swift in Sources */,
 				E80C10FB27B6DAD1009CEE52 /* Configs.swift in Sources */,
+				E809B7B527BE80A800C9F908 /* CycleSelectionViewModel.swift in Sources */,
 				E80C110027B6E120009CEE52 /* LogWriteViewModel.swift in Sources */,
 				E8B075BC27B41532004127BC /* TabBarViewModel.swift in Sources */,
 				E80C10F527B6D4B9009CEE52 /* Color.swift in Sources */,

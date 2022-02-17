@@ -11,9 +11,11 @@ class MesoCycleSelectionController: UIViewController
                                         ,UITableViewDataSource, UITableViewDelegate
 {
     var navigator: Navigator!
+//    var viewModel: CycleSelectionViewModel!
     
     init(navigator: Navigator) {
         self.navigator = navigator
+//        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -42,12 +44,12 @@ class MesoCycleSelectionController: UIViewController
                               "19주",
                               "20주"]
     
-    
     // 선택 해제 설정
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
-        
-        self.navigator.show(segue: .microSelection, sender: self)
+        let viewModel = CycleSelectionViewModel()
+        viewModel.mesoSplitCount = indexPath.row
+        self.navigator.show(segue: .microSelection(viewModel: viewModel), sender: self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

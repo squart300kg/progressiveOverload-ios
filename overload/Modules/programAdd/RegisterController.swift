@@ -12,6 +12,21 @@ import HMSegmentedControl
 class RegisterController: UIViewController {
     
     var navigator: Navigator!
+    var viewModel: CycleSelectionViewModel!
+    
+    var mesoTitle = Array<String>()
+    var microTitle = Array<String>()
+    
+    init(viewModel: CycleSelectionViewModel, navigator: Navigator) {
+        self.navigator = navigator
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+        calculateCycle()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(nibName: nil, bundle: nil)
+    }
     
     lazy var guideText: UILabel = {
         let guideTextView = UILabel()
@@ -104,7 +119,7 @@ class RegisterController: UIViewController {
     }()
     
     lazy var mesoSegment: HMSegmentedControl = {
-        let titles = ["1주차", "2주차", "3주차", "4주차"]
+        let titles = mesoTitle
         let view = HMSegmentedControl(sectionTitles: titles)
         view.selectedSegmentIndex = 0
         view.backgroundColor = .clear
@@ -114,7 +129,7 @@ class RegisterController: UIViewController {
     }()
     
     lazy var microSegment: HMSegmentedControl = {
-        let titles = ["1일차", "2일차", "3일차", "4일차"]
+        let titles = microTitle
         let view = HMSegmentedControl(sectionTitles: titles)
         view.selectedSegmentIndex = 0
         view.backgroundColor = .clear
@@ -156,15 +171,6 @@ class RegisterController: UIViewController {
         }
         return label
     }()
-    
-    init(navigator: Navigator) {
-        self.navigator = navigator
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(nibName: nil, bundle: nil)
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -239,5 +245,16 @@ class RegisterController: UIViewController {
             self.navigator.show(segue: .registerDetail, sender: self)
         }.disposed(by: rx.disposeBag)
 
+    }
+    
+    private func calculateCycle() {
+        for i in 0...viewModel.mesoSplitCount {
+            mesoTitle.append("\(i+1)주차")
+            print("meso : \(i)주차")
+        }
+        for i in 0...viewModel.microSplitCount {
+            microTitle.append("\(i+1)일")
+            print("micro : \(i)일")
+        }
     }
 }
