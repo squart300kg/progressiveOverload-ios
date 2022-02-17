@@ -20,6 +20,8 @@ class Navigator {
         case tabs(viewModel: TabBarViewModel)
         case mesoSelection
         case microSelection
+        case register
+        case registerDetail
     }
     
     enum Transition {
@@ -37,19 +39,16 @@ class Navigator {
         case .tabs(let viewModel): return TableBarController(viewModel: viewModel, navigator: self)
         case .mesoSelection: return MesoCycleSelectionController(navigator: self)
         case .microSelection: return MicroCycleSelectionController(navigator: self)
-            
+        case .register: return RegisterController(navigator: self)
+        case .registerDetail: return RegisterDetailController(navigator: self)
         }
         
     }
     
     func show(segue: Scene, sender: UIViewController?, transition: Transition = .navigation(type: .cover(direction: .left))) {
-        print("show : \(segue)")
         if let target = get(segue: segue) {
-            print("target : \(target)")
-            print("sender : \(sender)")
             show(target: target, sender: sender, transition: transition)
         }
-        print("transition : \(transition)")
     }
     
     private func show(target: UIViewController, sender: UIViewController?, transition: Transition) {
