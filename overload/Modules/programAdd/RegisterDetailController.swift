@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SQLite3
 
 class RegisterDetailController: UIViewController {
     
@@ -21,6 +22,21 @@ class RegisterDetailController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(nibName: nil, bundle: nil)
     }
+    
+    let path: String = {
+          let fm = FileManager.default
+          return fm.urls(for:.libraryDirectory, in:.userDomainMask).last!
+                   .appendingPathComponent("ToDo.db").path
+        }()
+    
+    let createTableString = """
+       CREATE TABLE IF NOT EXISTS ToDo(
+       Id INTEGER PRIMARY KEY AUTOINCREMENT,
+       Work CHAR(255),
+       Done INT);
+       """
+    
+    var db: OpaquePointer?
     
     lazy var exerciseNameField: UITextField = {
         let textView = UITextField()
@@ -345,4 +361,8 @@ extension RegisterDetailController {
         UIView.animate(withDuration: 10.0, delay: 0.1, options: .curveEaseOut, animations: { toastLabel.alpha = 0.0 }, completion: {(isCompleted) in toastLabel.removeFromSuperview() })
         
     }
+}
+extension RegisterDetailController {
+    
+    
 }
