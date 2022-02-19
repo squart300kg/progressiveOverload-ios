@@ -7,15 +7,11 @@
 
 import UIKit
 
-class MesoCycleSelectionController: UIViewController
-                                        ,UITableViewDataSource, UITableViewDelegate
-{
+class MesoCycleSelectionController: UIViewController {
     var navigator: Navigator!
-//    var viewModel: CycleSelectionViewModel!
     
     init(navigator: Navigator) {
         self.navigator = navigator
-//        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -43,31 +39,6 @@ class MesoCycleSelectionController: UIViewController
                               "18주",
                               "19주",
                               "20주"]
-    
-    // 선택 해제 설정
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
-        let viewModel = CycleSelectionViewModel()
-        viewModel.mesoSplitCount = indexPath.row
-        self.navigator.show(segue: .microSelection(viewModel: viewModel), sender: self)
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: CycleSelectionCell.identifier, for: indexPath) as! CycleSelectionCell
-        cell.textLabel?.text = mesoList[indexPath.row]
-        cell.textLabel?.textAlignment = .center
-        cell.textLabel?.textColor = .white
-        
-        cell.contentView.backgroundColor = MainColor().green_first
-        cell.contentView.cornerRadius = 10
-        cell.backgroundColor = .clear 
-
-        return cell
-    }
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mesoList.count
-    }
     
     lazy var tableView: UITableView = {
         return UITableView()
@@ -195,5 +166,32 @@ class MesoCycleSelectionController: UIViewController
         self.tableView.separatorColor = .white
         self.tableView.register(CycleSelectionCell.self, forCellReuseIdentifier: CycleSelectionCell.identifier)
         
+    }
+}
+extension MesoCycleSelectionController: UITableViewDataSource, UITableViewDelegate {
+    
+    // 선택 해제 설정
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: false)
+        let viewModel = CycleSelectionViewModel()
+        viewModel.mesoSplitCount = indexPath.row
+        self.navigator.show(segue: .microSelection(viewModel: viewModel), sender: self)
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: CycleSelectionCell.identifier, for: indexPath) as! CycleSelectionCell
+        cell.textLabel?.text = mesoList[indexPath.row]
+        cell.textLabel?.textAlignment = .center
+        cell.textLabel?.textColor = .white
+        
+        cell.contentView.backgroundColor = MainColor().green_first
+        cell.contentView.cornerRadius = 10
+        cell.backgroundColor = .clear
+
+        return cell
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mesoList.count
     }
 }

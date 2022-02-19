@@ -250,11 +250,9 @@ class RegisterController: UIViewController {
     private func calculateCycle() {
         for i in 0...viewModel.mesoSplitCount {
             mesoTitle.append("\(i+1)주차")
-            print("meso : \(i)주차")
         }
         for i in 0...viewModel.microSplitCount {
             microTitle.append("\(i+1)일")
-            print("micro : \(i)일")
         }
     }
 }
