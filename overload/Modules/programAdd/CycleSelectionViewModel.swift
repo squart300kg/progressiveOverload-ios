@@ -11,6 +11,7 @@ class CycleSelectionViewModel: ViewModel, ViewModelType {
     
     var mesoSplitCount = 0
     var microSplitCount = 0
+    var programNo = 0
     
     struct Input {
         

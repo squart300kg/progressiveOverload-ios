@@ -63,3 +63,4 @@ let crerateRecordTable = """
     """
 
 var db : OpaquePointer?
+

@@ -10,6 +10,8 @@ import SQLite3
 
 class ProgramDB {
     
+    static let shared = ProgramDB()
+    
     init() {
         if sqlite3_open(path, &db) == SQLITE_OK {
             print("테이블 생성 완료!!")
@@ -50,5 +52,24 @@ class ProgramDB {
         }
         sqlite3_finalize(stmt)
         return Int(sqlite3_last_insert_rowid(db))
+    }
+    
+    func deleteProgram(programNo: Int) -> String {
+        let sql = "DELETE FROM ProgramTable WHERE no = \(programNo);"
+        var stmt: OpaquePointer?
+        
+        if sqlite3_prepare(db, sql, -1, &stmt, nil) == SQLITE_OK {
+            if sqlite3_step(stmt) == SQLITE_DONE {
+                print("delete Row Success")
+            } else {
+                print("delete Row Fail")
+            }
+                
+        } else {
+            print("delete is not prepared...")
+        }
+        sqlite3_finalize(stmt)
+        
+        return "process end..."
     }
 }
