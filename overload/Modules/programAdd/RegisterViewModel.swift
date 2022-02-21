@@ -8,6 +8,11 @@
 import Foundation
 
 class RegisterViewModel: ViewModel, ViewModelType {
+    
+    var programNo = 0
+    var mesoCycleSplitIndex = 0
+    var microCycleSplitIndex = 0
+    
     struct Input {
         
     }

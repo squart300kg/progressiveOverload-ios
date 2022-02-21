@@ -31,9 +31,7 @@ class ProgramDB {
     func insertProgram(program: ProgramTable) -> Int {
         let sql = "INSERT INTO ProgramTable (name, mesoSplitText, mesoSplitCount, microCycleText, microCycleCount, isDummy, isDummyDataInit) VALUES (?,?,?,?,?,?,?)"
         var stmt: OpaquePointer?
-        
-        print("sql2 : name : \(program.name)\n mesoText : \(program.mesoSplitText)\n mesoCount :\(program.mesoSplitCount)\n microText : \(program.microCycleText)\n mircoCount :\(program.microCycleCount)\n")
-        
+         
         if sqlite3_prepare(db, sql, -1, &stmt, nil) == SQLITE_OK {
             sqlite3_bind_text(stmt, 1, ((program.name) as NSString).utf8String, -1, nil)
             sqlite3_bind_text(stmt, 2, ((program.mesoSplitText) as NSString).utf8String, -1, nil)
@@ -43,12 +41,12 @@ class ProgramDB {
             sqlite3_bind_int(stmt, 6, program.isDummy ? 1 : 0)
             sqlite3_bind_int(stmt, 7, program.isDummyDataInit ? 1 : 0)
             if sqlite3_step(stmt) == SQLITE_DONE {
-                print("sqlSuccess")
+                print("insertProgram sqlSuccess")
             } else {
-                print("sqlFail")
+                print("insertProgram sqlFail")
             }
         } else {
-            print("sql is not prepared")
+            print("insertProgram sql is not prepared")
         }
         sqlite3_finalize(stmt)
         return Int(sqlite3_last_insert_rowid(db))
@@ -71,5 +69,32 @@ class ProgramDB {
         sqlite3_finalize(stmt)
         
         return "process end..."
+    }
+    
+    func insertExerciseType(table: ExerciseTypeTable) -> Int {
+        let sql = "INSERT INTO ExerciseTypeTable (name, weight, repitition, setNum, restTime, rpe, programNo, mesoCycleSplitIndex, microCycleSplitIndex) VALUES (?,?,?,?,?,?,?,?,?)"
+        var stmt: OpaquePointer?
+          
+        if sqlite3_prepare(db, sql, -1, &stmt, nil) == SQLITE_OK {
+            
+            sqlite3_bind_text(stmt, 1, ((table.name) as NSString).utf8String, -1, nil)
+            sqlite3_bind_double(stmt, 2, table.weight)
+            sqlite3_bind_int(stmt, 3, table.repitition)
+            sqlite3_bind_int(stmt, 4, table.setNum)
+            sqlite3_bind_int(stmt, 5, table.restTime)
+            sqlite3_bind_int(stmt, 6, table.rir)
+            sqlite3_bind_int(stmt, 7, table.programNo)
+            sqlite3_bind_int(stmt, 8, table.mesoCycleSplitIndex)
+            sqlite3_bind_int(stmt, 9, table.microCycleSplitIndex)
+            if sqlite3_step(stmt) == SQLITE_DONE {
+                print("sqlSuccess")
+            } else {
+                print("sqlFail")
+            }
+        } else {
+            print("sql is not prepared")
+        }
+        sqlite3_finalize(stmt)
+        return Int(sqlite3_last_insert_rowid(db))
     }
 }

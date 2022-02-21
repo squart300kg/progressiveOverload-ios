@@ -10,12 +10,15 @@ import UIKit
 class RegisterDetailController: UIViewController {
 
     var navigator: Navigator!
+    var viewModel: RegisterViewModel!
     var isInputPerfect = false
     
-    init(navigator: Navigator) {
+    init(viewModel: RegisterViewModel, navigator: Navigator) {
         self.navigator = navigator
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
+     
     
     required init?(coder aDecoder: NSCoder) {
         super.init(nibName: nil, bundle: nil)

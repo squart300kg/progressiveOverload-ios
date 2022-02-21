@@ -21,7 +21,7 @@ class Navigator {
         case mesoSelection
         case microSelection(viewModel: CycleSelectionViewModel)
         case register(viewModel: CycleSelectionViewModel)
-        case registerDetail
+        case registerDetail(viewModel: RegisterViewModel)
     }
     
     enum Transition {
@@ -40,7 +40,7 @@ class Navigator {
         case .mesoSelection: return MesoCycleSelectionController(navigator: self)
         case .microSelection(let viewModel): return MicroCycleSelectionController(viewModel: viewModel, navigator: self)
         case .register(let viewModel): return RegisterController(viewModel: viewModel, navigator: self)
-        case .registerDetail: return RegisterDetailController(navigator: self)
+        case .registerDetail(let viewModel): return RegisterDetailController(viewModel: viewModel, navigator: self)
         }
         
     }

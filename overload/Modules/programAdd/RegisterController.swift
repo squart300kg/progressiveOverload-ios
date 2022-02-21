@@ -14,8 +14,7 @@ extension RegisterController {
         super.viewDidLoad()
          
         makeUI()
-        bindViewModel()
-        navigationController?.interactivePopGestureRecognizer?.addTarget(self, action: #selector(handleBackswipe))
+        bindViewModel() 
     }
      
     override func viewWillAppear(_ animated: Bool) {
@@ -101,37 +100,14 @@ extension RegisterController {
     
     private func bindViewModel() {
         addBorderView.rx.tap().bind {
-            self.navigator.show(segue: .registerDetail, sender: self)
+            let viewModel = RegisterViewModel()
+            viewModel.programNo = self.viewModel.programNo
+            viewModel.mesoCycleSplitIndex = Int(self.mesoSegment.selectedSegmentIndex)
+            viewModel.microCycleSplitIndex = Int(self.microSegment.selectedSegmentIndex)
+            print("tabPosition : \(self.viewModel.programNo), \(self.mesoSegment.selectedSegmentIndex), \(self.microSegment.selectedSegmentIndex)")
+            self.navigator.show(segue: .registerDetail(viewModel: viewModel), sender: self)
         }.disposed(by: rx.disposeBag)
     }
-    
-//    func swipeRecognizer() {
-//        let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture(_:)))
-//        swipeRight.direction = UISwipeGestureRecognizer.Direction.right
-//        self.view.addGestureRecognizer(swipeRight)
-//
-//    }
-//
-//    @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer){
-//        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-//            switch swipeGesture.direction{
-//            case UISwipeGestureRecognizer.Direction.right:
-//                // 스와이프 시, 원하는 기능 구현.
-//                print("뒤로가깅")
-//                self.dismiss(animated: true, completion: nil)
-//            default: break
-//            }
-//        }
-//    }
-    
-    
-    @objc private func handleBackswipe() {
-//        print("뒤로가깅깅")
-        navigationController?.interactivePopGestureRecognizer?.removeTarget(self, action: #selector(self.handleBackswipe))
-        // insert your custom code here
-    }
-     
-    
 }
 
 extension RegisterController: UINavigationControllerDelegate {

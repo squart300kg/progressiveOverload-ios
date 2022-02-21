@@ -12,8 +12,7 @@ import SQLite3
 extension RegisterDetailController {
      
     override func viewDidLoad() {
-        super.viewDidLoad()
-        
+        super.viewDidLoad() 
         makeUI()
         bindViewModel()
     }
@@ -94,6 +93,19 @@ extension RegisterDetailController {
         
         registerBtn.rx.tap().bind {
             if self.isInputPerfect == true {
+                let table = ExerciseTypeTable()
+                table.name = self.exerciseNameField.text!
+                table.weight = Double(self.weightFiled.text!)!
+                table.repitition = Int32(self.repField.text!)!
+                table.setNum = Int32(self.setField.text!)!
+                table.restTime = Int32(self.restField.text!)!
+                table.rir = Int32(self.rirField.text!)!
+                table.programNo = Int32(exactly: self.viewModel.programNo)!
+                table.mesoCycleSplitIndex = Int32(self.viewModel.mesoCycleSplitIndex)
+                table.microCycleSplitIndex = Int32(self.viewModel.microCycleSplitIndex)
+                
+                print("name : \(self.exerciseNameField.text!), weight : \(Double(self.weightFiled.text!)!), programNo: \(Int32(exactly: self.viewModel.programNo)!), meso : \(Int32(self.viewModel.mesoCycleSplitIndex)), micro : \(Int32(self.viewModel.microCycleSplitIndex))")
+                ProgramDB.shared.insertExerciseType(table: table)
                 self.navigationController?.popViewController(animated: true)
             } else {
                 self.showToast(message: "입력창을 모두 채워주세요!")
