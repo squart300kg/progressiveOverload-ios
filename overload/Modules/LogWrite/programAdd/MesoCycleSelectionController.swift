@@ -7,8 +7,8 @@
 
 import UIKit
 
-extension MicroCycleSelectionController {
-     
+extension MesoCycleSelectionController {
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -44,26 +44,21 @@ extension MicroCycleSelectionController {
     }
 }
 
-extension MicroCycleSelectionController: UITableViewDataSource, UITableViewDelegate {
+extension MesoCycleSelectionController: UITableViewDataSource, UITableViewDelegate {
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+//        cell.contentView.layer.masksToBounds = true
+        
+        // 스크롤 버벅일때 주석 풀어볼 것
+//        let radius = cell.contentView.layer.cornerRadius
+//        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.bounds, cornerRadius: radius).cgPath
+    }
     // 선택 해제 설정
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: false)
         let viewModel = CycleSelectionViewModel()
-        viewModel.microSplitCount = indexPath.row
-        viewModel.mesoSplitCount = self.viewModel.mesoSplitCount
-        
-        let programTable = ProgramTable()
-        programTable.name = DateUtils().getCurrentDateForProgramName()
-        programTable.mesoSplitText = "\(viewModel.mesoSplitCount + 1)주"
-        programTable.mesoSplitCount = Int32(viewModel.mesoSplitCount + 1)
-        programTable.microCycleText = "\(viewModel.microSplitCount + 1)일"
-        programTable.microCycleCount = Int32(viewModel.microSplitCount + 1)
-        programTable.isDummy = false
-        programTable.isDummyDataInit = false
-        
-        viewModel.programNo = ProgramDB.shared.insertProgram(program: programTable)
-        self.navigator.show(segue: .register(viewModel: viewModel), sender: self)
+        viewModel.mesoSplitCount = indexPath.row
+        self.navigator.show(segue: .microSelection(viewModel: viewModel), sender: self)
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

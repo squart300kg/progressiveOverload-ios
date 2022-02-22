@@ -16,7 +16,7 @@ class ExerciseTypeTable {
     var repitition: Int32 = 0
     var setNum: Int32 = 0
     var restTime: Int32 = 0
-    var rir: Int32 = 0
+    var rpe: Int32 = 0
     var programNo: Int32 = 0
     var mesoCycleSplitIndex: Int32 = 0
     var microCycleSplitIndex: Int32 = 0

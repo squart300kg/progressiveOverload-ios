@@ -15,8 +15,13 @@ class RegisterController: UIViewController {
     
     var mesoTitle = Array<String>()
     var microTitle = Array<String>()
+    
+    var mesoCycleSplitIndex = 0
+    var microCycleSplitIndex = 0
      
-    var willBackground = false
+    var viewWillBackground = false
+    
+    var exerciseList = Array<ExerciseTypeTable>()
     
     init(viewModel: CycleSelectionViewModel, navigator: Navigator) {
         self.navigator = navigator
@@ -138,39 +143,12 @@ class RegisterController: UIViewController {
         
         return view
     }()
-    
-    lazy var addBorderView: UIView = {
-        let view = UIView()
-        self.view.addSubview(view)
-//        view.snp.makeConstraints{ make in
-//            make.top.equalTo(microSegment.snp.bottom)
-//            make.leading.trailing.equalToSuperview().inset(10)
-//            make.height.equalTo(view.snp.width).multipliedBy(0.5)
-//        }
-         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            view.addDashedBorder()
-        }
-
-        return view
-    }()
-    
-    lazy var plusImage: UIImageView = {
-        let imageView = UIImageView(image: R.image.icon_plus())
-        imageView.snp.makeConstraints { make in
-            make.width.height.equalTo(20)
-        }
-        return imageView
-    }()
-    
-    lazy var addText: UILabel = {
-        let label = UILabel()
-        label.text = "프로그램 등록"
-        label.textAlignment = .center
-        label.snp.makeConstraints { make in
-            make.width.equalTo(100)
-        }
-        return label
+  
+    lazy var tableView: UITableView = {
+        let tableView = UITableView()
+        
+        return tableView
+        
     }()
     
     lazy var registerBtn: UILabel = {

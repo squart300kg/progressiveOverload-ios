@@ -99,7 +99,7 @@ extension RegisterDetailController {
                 table.repitition = Int32(self.repField.text!)!
                 table.setNum = Int32(self.setField.text!)!
                 table.restTime = Int32(self.restField.text!)!
-                table.rir = Int32(self.rirField.text!)!
+                table.rpe = Int32(self.rirField.text!)!
                 table.programNo = Int32(exactly: self.viewModel.programNo)!
                 table.mesoCycleSplitIndex = Int32(self.viewModel.mesoCycleSplitIndex)
                 table.microCycleSplitIndex = Int32(self.viewModel.microCycleSplitIndex)

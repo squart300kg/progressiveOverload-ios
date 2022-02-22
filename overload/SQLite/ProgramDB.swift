@@ -82,7 +82,7 @@ class ProgramDB {
             sqlite3_bind_int(stmt, 3, table.repitition)
             sqlite3_bind_int(stmt, 4, table.setNum)
             sqlite3_bind_int(stmt, 5, table.restTime)
-            sqlite3_bind_int(stmt, 6, table.rir)
+            sqlite3_bind_int(stmt, 6, table.rpe)
             sqlite3_bind_int(stmt, 7, table.programNo)
             sqlite3_bind_int(stmt, 8, table.mesoCycleSplitIndex)
             sqlite3_bind_int(stmt, 9, table.microCycleSplitIndex)
@@ -96,5 +96,47 @@ class ProgramDB {
         }
         sqlite3_finalize(stmt)
         return Int(sqlite3_last_insert_rowid(db))
+    }
+    
+    func getExercises(programNo: Int, mesoIndex: Int, microIndex: Int) -> [ExerciseTypeTable] {
+        
+        
+        let sql = "SELECT * FROM ExerciseTypeTable WHERE programNo == \(programNo) AND mesoCycleSplitIndex == \(mesoIndex) AND microCycleSplitIndex == \(microIndex);"
+        var items : [ExerciseTypeTable] = []
+        var stmt: OpaquePointer? //query를 가리키는 포인터
+        
+        if sqlite3_prepare(db, sql, -1, &stmt, nil) == SQLITE_OK{
+            while(sqlite3_step(stmt) == SQLITE_ROW){
+                let no = sqlite3_column_int(stmt, 0)
+                let name = sqlite3_column_text(stmt, 1)
+                let weight = sqlite3_column_double(stmt, 2)
+                let repitition = sqlite3_column_int(stmt, 3)
+                let setNum = sqlite3_column_int(stmt, 4)
+                let restTime = sqlite3_column_int(stmt, 5)
+                let rpe = sqlite3_column_int(stmt, 6)
+                let programNo = sqlite3_column_int(stmt, 7)
+                let mesoCycleSplitIndex = sqlite3_column_int(stmt, 8)
+                let microCycleSplitIndex = sqlite3_column_int(stmt, 9)
+                
+                
+                let item = ExerciseTypeTable()
+                item.no = no
+                item.name = String(cString: name!)
+                item.weight = weight
+                item.repitition = repitition
+                item.setNum = setNum
+                item.restTime = restTime
+                item.rpe = rpe
+                item.programNo = programNo
+                item.mesoCycleSplitIndex = mesoCycleSplitIndex
+                item.microCycleSplitIndex = microCycleSplitIndex
+                items.append(item)
+            }
+        }else{
+            print("query is not prepared")
+        }
+        
+        sqlite3_finalize(stmt)
+        return items
     }
 }
