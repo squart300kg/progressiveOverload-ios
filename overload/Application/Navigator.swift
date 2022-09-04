@@ -45,16 +45,25 @@ class Navigator {
         
     }
     
-    func show(segue: Scene, sender: UIViewController?, transition: Transition = .navigation(type: .cover(direction: .left))) {
+    func show(segue: Scene,
+              sender: UIViewController?,
+              transition: Transition = .navigation(type: .cover(direction: .left))) {
+        
         if let target = get(segue: segue) {
-            show(target: target, sender: sender, transition: transition)
+            show(target: target,
+                 sender: sender,
+                 transition: transition)
         }
+        
     }
     
     private func show(target: UIViewController, sender: UIViewController?, transition: Transition) {
         switch transition {
         case .root(in: let window):
-            UIView.transition(with: window, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+            UIView.transition(with: window,
+                              duration: 0.5,
+                              options: .transitionFlipFromLeft,
+                              animations: {
                 window.rootViewController = target
                 window.makeKeyAndVisible()
             }, completion: nil)

@@ -33,6 +33,8 @@ final class Application: NSObject {
         guard let window = window else { return }
         self.window = window
         let viewModel = TabBarViewModel()
-        self.navigator.show(segue: .tabs(viewModel: viewModel), sender: nil, transition: .root(in: window))
+        self.navigator.show(segue: .tabs(viewModel: viewModel),
+                            sender: nil,
+                            transition: .root(in: window))
     }
 }

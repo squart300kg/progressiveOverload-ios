@@ -8,11 +8,28 @@
 import UIKit
 import SnapKit
 import RxSwift
+import WebKit
 
 class LogWriteController: UIViewController {
     var viewModel: ViewModel?
     var navigator: Navigator!
    
+    // MARK: - VIEW
+    lazy var contentWebView: WKWebView = {
+        let webView = WKWebView()
+        return webView
+    }()
+    
+    lazy var contentView: UIView = {
+        let view = UIView()
+        self.view.addSubview(view)
+        view.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view.safeAreaLayoutGuide)
+        }
+        return view
+    }()
+    
+    
     lazy var addBorderView: UIView = {
         let view = UIView()
         self.view.addSubview(view)
@@ -72,20 +89,31 @@ class LogWriteController: UIViewController {
     }
     
     private func makeUI() {
-        self.view.backgroundColor = .white
-        self.navigationController?.navigationBar.isHidden = true
         
-        addBorderView.addSubview(plusImage)
-        addBorderView.addSubview(addText)
+        let url = URL(string: "https://www.naver.com" )
+        let request = URLRequest(url: url!)
         
-        plusImage.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(75)
-            make.centerX.equalToSuperview()
+        contentView.addSubview(contentWebView)
+        contentWebView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
-        addText.snp.makeConstraints { make in
-            make.top.equalTo(plusImage.snp.bottom)
-            make.centerX.equalToSuperview()
-        }
+        contentWebView.load(request)
+        
+        
+//        self.view.backgroundColor = .white
+//        self.navigationController?.navigationBar.isHidden = true
+//
+//        addBorderView.addSubview(plusImage)
+//        addBorderView.addSubview(addText)
+//
+//        plusImage.snp.makeConstraints { make in
+//            make.top.equalToSuperview().inset(75)
+//            make.centerX.equalToSuperview()
+//        }
+//        addText.snp.makeConstraints { make in
+//            make.top.equalTo(plusImage.snp.bottom)
+//            make.centerX.equalToSuperview()
+//        }
     }
     
     private func bindViewModel() {
