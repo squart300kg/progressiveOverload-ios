@@ -5,7 +5,6 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LanchScreenSauceLogo" translatesAutoresizingMaskIntoConstraints="NO" id="4EW-dB-0ha">
-                                <rect key="frame" x="107" y="348" width="200" height="200"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashImage" translatesAutoresizingMaskIntoConstraints="NO" id="4EW-dB-0ha">
+                                <rect key="frame" x="58.5" y="348" width="297" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="bly-Te-oW4"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="eQf-w4-DpA"/>
@@ -26,7 +25,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.79683929679999999" green="0.83404159550000001" blue="0.91373616459999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="4EW-dB-0ha" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="6Oa-Af-wfq"/>
                             <constraint firstItem="4EW-dB-0ha" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="WGB-5U-09k"/>
@@ -39,9 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LanchScreenSauceLogo" width="106.5" height="104"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
+        <image name="SplashImage" width="297" height="109"/>
     </resources>
 </document>

@@ -9,30 +9,21 @@ import UIKit
 
 final class Application: NSObject {
     
-    static let shared = Application()
-    
-    var window: UIWindow?
-    
-//    var provider: SqlLiteAPI
-    let navigator: Navigator
+    static let getInstance = Application()
     
     private override init() {
-        navigator = Navigator.shared
         super.init()
         updateProvider()
     }
     
-    private func updateProvider() {
-//        let serviceProvider =
-//        let sqlLiteApi =
-//        provider = roomApi
-    }
+    private func updateProvider() { }
     
-    func presentInitialScreen(in window: UIWindow?) {
-//        guard let window = window, provider = provider else {return}
+    func initAppScreen(in window: UIWindow?) {
         guard let window = window else { return }
-        self.window = window
-        let viewModel = TabBarViewModel()
-        self.navigator.show(segue: .tabs(viewModel: viewModel), sender: nil, transition: .root(in: window))
+        
+        UIView.transition(with: window, duration: 0.5, options: .transitionFlipFromLeft, animations: {
+            window.rootViewController = HomeController()
+            window.makeKeyAndVisible()
+        }, completion: nil)
     }
 }

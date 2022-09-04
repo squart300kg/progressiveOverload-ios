@@ -36,14 +36,5 @@ class TabBarViewModel: ViewModel, ViewModelType {
         super.init()
     }
     
-    func viewModel(for tabBarItem: TabBarItem) -> ViewModel {
-        switch tabBarItem {
-        case .logWrite:
-            let viewModel = LogWriteViewModel()
-            return viewModel
-        case .logRead:
-            let viewModel = LogReadViewModel()
-            return viewModel
-        }
-    }
+    func viewModel(for tabBarItem: TabBarItem) -> ViewModel {  }
 }
