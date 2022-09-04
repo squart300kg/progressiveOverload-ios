@@ -11,10 +11,21 @@ import SnapKit
 
 class HomeController: ViewController {
     
-    lazy var mainWebView: WKWebView = {
-        let webView = WKWebView()
+    lazy var contentView: UIView = {
+        let view = UIView()
+        self.view.addSubview(view)
+        view.snp.makeConstraints { (make) in
+            make.edges.equalTo(self.view.safeAreaLayoutGuide)
+        }
+        return view
+    }()
+    
+    lazy var contentWebView: UITextView = {
+        let webView = UITextView()
         return webView
     }()
+    
+    let request = URLRequest(url: URL(string: "https://www.naver.com/")!)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,11 +34,13 @@ class HomeController: ViewController {
     }
     
     private func makeUI() {
-        let url = URL(string: "https://pudufu.co.kr/" )
-        let request = URLRequest(url: url!)
-
-        self.view.addSubview(mainWebView)
-        mainWebView.load(request)
+        contentView.addSubview(contentWebView)
+        contentWebView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        
+        contentWebView.text = "hello"
+//        contentWebView.load(request)
     }
     
     func bindViewModel() {}
