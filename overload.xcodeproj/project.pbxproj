@@ -16,7 +16,6 @@
 		E817A13127B8ECAE002F0D0F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817A13027B8ECAE002F0D0F /* UIView+Extension.swift */; };
 		E82D961A27C11C84005CE61D /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D961927C11C84005CE61D /* DateUtil.swift */; };
 		E8B075A327B4095E004127BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B075A227B4095E004127BC /* AppDelegate.swift */; };
-		E8B075A727B4095E004127BC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B075A627B4095E004127BC /* ViewController.swift */; };
 		E8B075AC27B40960004127BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8B075AB27B40960004127BC /* Assets.xcassets */; };
 		E8B075AF27B40960004127BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8B075AD27B40960004127BC /* LaunchScreen.storyboard */; };
 		E8D3B0FD27B534D000071D3E /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D3B0FC27B534D000071D3E /* HomeController.swift */; };
@@ -35,7 +34,6 @@
 		E82D961927C11C84005CE61D /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		E8B0759F27B4095E004127BC /* overload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = overload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8B075A227B4095E004127BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E8B075A627B4095E004127BC /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E8B075AB27B40960004127BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8B075AE27B40960004127BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E8B075B027B40960004127BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -135,7 +133,6 @@
 		E8B075A127B4095E004127BC /* overload */ = {
 			isa = PBXGroup;
 			children = (
-				E8B075A627B4095E004127BC /* ViewController.swift */,
 				E8B075AB27B40960004127BC /* Assets.xcassets */,
 				E8B075AD27B40960004127BC /* LaunchScreen.storyboard */,
 				E8B075B027B40960004127BC /* Info.plist */,
@@ -289,7 +286,6 @@
 				E8D3B0FD27B534D000071D3E /* HomeController.swift in Sources */,
 				E8DBB55427B514730044F29C /* Application.swift in Sources */,
 				E80C110527B6E674009CEE52 /* R.generated.swift in Sources */,
-				E8B075A727B4095E004127BC /* ViewController.swift in Sources */,
 				E817A13127B8ECAE002F0D0F /* UIView+Extension.swift in Sources */,
 				E80C10F827B6D89C009CEE52 /* Observable+Operators.swift in Sources */,
 				E8B075A327B4095E004127BC /* AppDelegate.swift in Sources */,

@@ -9,7 +9,7 @@ import UIKit
 import WebKit
 import SnapKit
 
-class HomeController: ViewController {
+class HomeController: UIViewController {
     
     lazy var contentView: UIView = {
         let view = UIView()
@@ -20,8 +20,8 @@ class HomeController: ViewController {
         return view
     }()
     
-    lazy var contentWebView: UITextView = {
-        let webView = UITextView()
+    lazy var contentWebView: WKWebView = {
+        let webView = WKWebView()
         return webView
     }()
     
@@ -29,6 +29,10 @@ class HomeController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        
+        print("homeC", "홈컨트롤러 로드")
         makeUI()
         bindViewModel()
     }
@@ -39,8 +43,8 @@ class HomeController: ViewController {
             make.edges.equalToSuperview()
         }
         
-        contentWebView.text = "hello"
-//        contentWebView.load(request)
+//        contentWebView.text = "hello"
+        contentWebView.load(request)
     }
     
     func bindViewModel() {}
