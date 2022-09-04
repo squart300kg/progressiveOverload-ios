@@ -9,7 +9,7 @@ import UIKit
 
 final class Application: NSObject {
     
-    static let getInstance = Application()
+    static var getInstance = Application()
     
     private override init() {
         super.init()
@@ -20,8 +20,6 @@ final class Application: NSObject {
     
     func initAppScreen(in window: UIWindow?) {
         guard let window = window else { return }
-        
-        print("homeC", "홈컨트롤러ㅓ 로드 시작")
         
         UIView.transition(with: window, duration: 0.5, options: .transitionFlipFromLeft, animations: {
             window.rootViewController = HomeController()
