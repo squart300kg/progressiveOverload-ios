@@ -15,6 +15,8 @@
 		E80C110727B6E77F009CEE52 /* Icons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E80C110627B6E77F009CEE52 /* Icons.xcassets */; };
 		E817A13127B8ECAE002F0D0F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E817A13027B8ECAE002F0D0F /* UIView+Extension.swift */; };
 		E82D961A27C11C84005CE61D /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82D961927C11C84005CE61D /* DateUtil.swift */; };
+		E85E6A0A28DCA0B300AADF61 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E85E6A0928DCA0B300AADF61 /* GoogleService-Info.plist */; };
+		E85E6A0C28DCB2A600AADF61 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E85E6A0B28DCB2A600AADF61 /* HomeViewModel.swift */; };
 		E8B075A327B4095E004127BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B075A227B4095E004127BC /* AppDelegate.swift */; };
 		E8B075AC27B40960004127BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8B075AB27B40960004127BC /* Assets.xcassets */; };
 		E8B075AF27B40960004127BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8B075AD27B40960004127BC /* LaunchScreen.storyboard */; };
@@ -32,6 +34,8 @@
 		E80C110627B6E77F009CEE52 /* Icons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Icons.xcassets; sourceTree = "<group>"; };
 		E817A13027B8ECAE002F0D0F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		E82D961927C11C84005CE61D /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		E85E6A0928DCA0B300AADF61 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E85E6A0B28DCB2A600AADF61 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		E8B0759F27B4095E004127BC /* overload.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = overload.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8B075A227B4095E004127BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8B075AB27B40960004127BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -133,6 +137,7 @@
 		E8B075A127B4095E004127BC /* overload */ = {
 			isa = PBXGroup;
 			children = (
+				E85E6A0928DCA0B300AADF61 /* GoogleService-Info.plist */,
 				E8B075AB27B40960004127BC /* Assets.xcassets */,
 				E8B075AD27B40960004127BC /* LaunchScreen.storyboard */,
 				E8B075B027B40960004127BC /* Info.plist */,
@@ -161,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				E8D3B0FC27B534D000071D3E /* HomeController.swift */,
+				E85E6A0B28DCB2A600AADF61 /* HomeViewModel.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -177,12 +183,15 @@
 				E8B0759C27B4095E004127BC /* Frameworks */,
 				E8B0759D27B4095E004127BC /* Resources */,
 				46BAC2B33C3E153FAB58693B /* [CP] Embed Pods Frameworks */,
+				E82DDE0428D5CEA40017ED7A /* Firebase Crashlytics */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = overload;
+			packageProductDependencies = (
+			);
 			productName = overload;
 			productReference = E8B0759F27B4095E004127BC /* overload.app */;
 			productType = "com.apple.product-type.application";
@@ -211,6 +220,8 @@
 				Base,
 			);
 			mainGroup = E8B0759627B4095E004127BC;
+			packageReferences = (
+			);
 			productRefGroup = E8B075A027B4095E004127BC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -226,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E8B075AF27B40960004127BC /* LaunchScreen.storyboard in Resources */,
+				E85E6A0A28DCA0B300AADF61 /* GoogleService-Info.plist in Resources */,
 				E80C110727B6E77F009CEE52 /* Icons.xcassets in Resources */,
 				E8B075AC27B40960004127BC /* Assets.xcassets in Resources */,
 			);
@@ -273,6 +285,26 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-overload/Pods-overload-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E82DDE0428D5CEA40017ED7A /* Firebase Crashlytics */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			name = "Firebase Crashlytics";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -283,6 +315,7 @@
 				E80C10F327B6D3FD009CEE52 /* UIImage+Extention.swift in Sources */,
 				E80C10F527B6D4B9009CEE52 /* Color.swift in Sources */,
 				E82D961A27C11C84005CE61D /* DateUtil.swift in Sources */,
+				E85E6A0C28DCB2A600AADF61 /* HomeViewModel.swift in Sources */,
 				E8D3B0FD27B534D000071D3E /* HomeController.swift in Sources */,
 				E8DBB55427B514730044F29C /* Application.swift in Sources */,
 				E80C110527B6E674009CEE52 /* R.generated.swift in Sources */,
@@ -430,6 +463,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = YUAGH5DPWX;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = overload/Info.plist;
@@ -443,7 +477,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.progressive.overload;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jachung.pdp.book;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -472,7 +506,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.progressive.overload;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jachung.pdp.book;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

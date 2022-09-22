@@ -8,16 +8,11 @@
 import Foundation
 
 class DateUtils {
-    func getCurrentDateForProgramName() -> String {
-        let now = Date()
-
-        let date = DateFormatter()
-        date.locale = Locale(identifier: "ko_kr")
-        date.timeZone = TimeZone(abbreviation: "KST") // "2018-03-21 18:07:27"
-        //date.timeZone = TimeZone(abbreviation: "NZST") // "2018-03-21 22:06:39"
-        date.dateFormat = "yyyy년 MM월 dd일 HH시 mm분 ss초"
-
-        let kr = date.string(from: now)
-        return kr
+    func getCurrentStringDate() -> String {
+        let dateFormatter : DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let date = Date()
+        let dateString = dateFormatter.string(from: date)
+        return dateString
     }
 }

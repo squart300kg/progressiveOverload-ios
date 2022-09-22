@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SplashImage" translatesAutoresizingMaskIntoConstraints="NO" id="4EW-dB-0ha">
-                                <rect key="frame" x="0.0" y="298" width="297" height="200"/>
+                                <rect key="frame" x="58.5" y="298" width="297" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="200" id="bly-Te-oW4"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="eQf-w4-DpA"/>
@@ -28,7 +28,7 @@
                         <color key="backgroundColor" red="0.79683929679999999" green="0.83404159550000001" blue="0.91373616459999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="4EW-dB-0ha" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-50" id="6Oa-Af-wfq"/>
-                            <constraint firstItem="4EW-dB-0ha" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="WGB-5U-09k"/>
+                            <constraint firstItem="4EW-dB-0ha" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="WGB-5U-09k"/>
                         </constraints>
                     </view>
                 </viewController>

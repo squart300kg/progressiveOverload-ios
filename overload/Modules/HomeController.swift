@@ -9,10 +9,15 @@ import UIKit
 import WebKit
 import SnapKit
 
+
 class HomeController: UIViewController {
     
-    lazy var contentWebView: WKWebView = {
+    lazy var mainWebView: WKWebView = {
         let webView = WKWebView()
+        self.view.addSubview(webView)
+        webView.snp.makeConstraints { make in
+            make.edges.equalTo(self.view.safeAreaLayoutGuide)
+        }
         return webView
     }()
     
@@ -28,18 +33,17 @@ class HomeController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        HomeViewModel().sendAppStartEvent()
+        
         loadWebView()
+        
     }
     
     private func loadWebView() {
-        self.view.addSubview(contentWebView)
-        contentWebView.navigationDelegate = self
-        contentWebView.allowsBackForwardNavigationGestures = true
-        contentWebView.snp.makeConstraints { make in
-            make.edges.equalTo(self.view.safeAreaLayoutGuide)
-        }
+        mainWebView.navigationDelegate = self
+        mainWebView.allowsBackForwardNavigationGestures = true
         
-        contentWebView.load(URLRequest(url: URL(string: "https://pudufu.co.kr/")!))
+        mainWebView.load(URLRequest(url: URL(string: "https://pudufu.co.kr/")!))
     }
 }
 
